@@ -1,0 +1,15 @@
+{
+	"name": "batch1-adf",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Enabled",
+			"editable": true
+		}
+	},
+	"location": "uksouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "0b8021f4-a410-42d1-bdee-5a85993e31c0",
+		"tenantId": "8e27c4ac-546f-4c88-b790-c6034e9d0af6"
+	}
+}
