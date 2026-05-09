@@ -841,6 +841,44 @@
 				"[concat(variables('factoryId'), '/datasets/DS_Source_with_p')]",
 				"[concat(variables('factoryId'), '/datasets/DS_ADLS_with_p')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Weekly_6AM')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "metadataDrivenPipeline",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Day",
+						"interval": 7,
+						"startTime": "2026-05-09T11:15:00",
+						"timeZone": "GMT Standard Time",
+						"schedule": {
+							"minutes": [
+								15
+							],
+							"hours": [
+								6
+							]
+						}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/metadataDrivenPipeline')]"
+			]
 		}
 	]
 }
